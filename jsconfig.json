@@ -1,3 +1,24 @@
 {
-  "extends": "./.quasar/tsconfig.json"
+  "extends": "./.quasar/tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "src": ["src"],
+      "src/*": ["src/*"],
+      "app": ["."],
+      "app/*": ["./*"],
+      "components": ["src/components"],
+      "components/*": ["src/components/*"],
+      "layouts": ["src/layouts"],
+      "layouts/*": ["src/layouts/*"],
+      "pages": ["src/pages"],
+      "pages/*": ["src/pages/*"],
+      "assets": ["src/assets"],
+      "assets/*": ["src/assets/*"],
+      "boot": ["src/boot"],
+      "boot/*": ["src/boot/*"],
+      "stores": ["src/stores"],
+      "stores/*": ["src/stores/*"]
+    }
+  }
 }

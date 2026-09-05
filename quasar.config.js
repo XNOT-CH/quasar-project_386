@@ -1,19 +1,17 @@
 // Configuration for your app
-// https://v2.quasar.dev/quasar-cli-vite/quasar-config-file
+// https://v2.quasar.dev/quasar-cli-webpack/quasar-config-file
 
-import { defineConfig } from '#q-app'
-
-export default defineConfig((/* ctx */) => {
+export default (/* ctx */) => {
   return {
-    // https://v2.quasar.dev/quasar-cli-vite/prefetch-feature
+    // https://v2.quasar.dev/quasar-cli-webpack/prefetch-feature
     // preFetch: true,
 
     // app boot file (/src/boot)
     // --> boot files are part of "main.js"
-    // https://v2.quasar.dev/quasar-cli-vite/boot-files
-    boot: [],
+    // https://v2.quasar.dev/quasar-cli-webpack/boot-files
+    boot: ['axios'],
 
-    // https://v2.quasar.dev/quasar-cli-vite/quasar-config-file#css
+    // https://v2.quasar.dev/quasar-cli-webpack/quasar-config-file#css
     css: ['app.scss'],
 
     // https://github.com/quasarframework/quasar/tree/dev/extras
@@ -30,46 +28,38 @@ export default defineConfig((/* ctx */) => {
       'material-icons' // optional, you are not bound to it
     ],
 
-    // https://v2.quasar.dev/quasar-cli-vite/quasar-config-file#build
+    // https://v2.quasar.dev/quasar-cli-webpack/quasar-config-file#build
     build: {
-      target: {
-        // browser: 'baseline-widely-available',
-        // node: 'node22'
-      },
-
-      // https://v2.quasar.dev/quasar-cli-vite/page-routing-with-vue-router#filename-based-routing
-      // filenameBasedRouting: true,
+      // https://v2.quasar.dev/quasar-cli-webpack/handling-webpack#Transpiling-node_modules-dependency
+      // webpackTranspile: false,
 
       vueRouterMode: 'hash' // available values: 'hash', 'history'
       // vueRouterBase,
 
       // publicPath: '/',
-      // define: {},
-      // defineEnv: {}
+      // env: {},
       // ignorePublicFolder: true,
       // minify: false,
       // distDir
 
-      // extendViteConf (viteConf) {},
-      // viteVuePluginOptions: {},
+      // vueLoaderOptions: {},
 
       // to write components with JSX/TSX:
-      // https://v2.quasar.dev/quasar-cli-vite/handling-vite#jsx-tsx
+      // https://v2.quasar.dev/quasar-cli-webpack/handling-webpack#JSX-support
       // vueJsx: true,
 
-      // vitePlugins: [
-      //   [ 'package-name', { ..pluginOptions.. }, { server: true, client: true } ]
-      // ]
+      // extendWebpack (cfg, { isServer, isClient }) {},
+      // chainWebpack (chain, { isServer, isClient }) {},
     },
 
-    // https://v2.quasar.dev/quasar-cli-vite/quasar-config-file#devserver
+    // https://v2.quasar.dev/quasar-cli-webpack/quasar-config-file#devserver
     devServer: {
       // vueDevtools: true,
       // https: true,
       open: true // opens browser window automatically
     },
 
-    // https://v2.quasar.dev/quasar-cli-vite/quasar-config-file#framework
+    // https://v2.quasar.dev/quasar-cli-webpack/quasar-config-file#framework
     framework: {
       config: {},
 
@@ -91,7 +81,7 @@ export default defineConfig((/* ctx */) => {
     // https://v2.quasar.dev/options/animations
     animations: [],
 
-    // https://v2.quasar.dev/quasar-cli-vite/quasar-config-file#sourcefiles
+    // https://v2.quasar.dev/quasar-cli-webpack/quasar-config-file#sourcefiles
     // sourceFiles: {
     //   rootComponent: 'src/App.vue',
     //   router: 'src/router/index',
@@ -104,7 +94,7 @@ export default defineConfig((/* ctx */) => {
     //   bexManifestFile: 'src-bex/manifest.json
     // },
 
-    // https://v2.quasar.dev/quasar-cli-vite/developing-ssr/configuring-ssr
+    // https://v2.quasar.dev/quasar-cli-webpack/developing-ssr/configuring-ssr
     ssr: {
       /**
        * The default port that the production server should use
@@ -125,7 +115,7 @@ export default defineConfig((/* ctx */) => {
 
       // extendSSRPackageJson (pkgJson) {},
       // extendSSRManifestJson (json) {},
-      // extendSSRWebserverConf (rolldownConf) {},
+      // extendSSRWebserverConf (webpackConf) {},
 
       // pwa: true,
       // pwaOfflineHtmlFilename: 'offline.html', // do NOT use index.html as name!
@@ -133,7 +123,7 @@ export default defineConfig((/* ctx */) => {
       // extendSSRInjectManifestOptions (cfg) {},
     },
 
-    // https://v2.quasar.dev/quasar-cli-vite/developing-ssg/configuring-ssg
+    // https://v2.quasar.dev/quasar-cli-webpack/developing-ssg/configuring-ssg
     ssg: {
       // onSsgRendererError: 'abort',
       // ssgRendererConcurrency: 1,
@@ -144,7 +134,7 @@ export default defineConfig((/* ctx */) => {
       // clientSideRenderingHtmlFilename: 'csr.html',
       // clientSideRenderingRoutes: [],
       // noPreloadTagRoutes: []
-      // extendSSGRendererConf (rolldownConf) {},
+      // extendSSGRendererConf (webpackConf) {},
       // extendSSGManifestJson (json) {},
       // manualStoreSerialization: true,
       // manualStoreSsrContextInjection: true,
@@ -156,7 +146,7 @@ export default defineConfig((/* ctx */) => {
       // extendSSGInjectManifestOptions (cfg) {},
     },
 
-    // https://v2.quasar.dev/quasar-cli-vite/developing-pwa/configuring-pwa
+    // https://v2.quasar.dev/quasar-cli-webpack/developing-pwa/configuring-pwa
     pwa: {
       workboxMode: 'GenerateSW' // 'GenerateSW' or 'InjectManifest'
       // swFilename: 'sw.js',
@@ -164,24 +154,24 @@ export default defineConfig((/* ctx */) => {
       // extendPWAManifestJson (json) {},
       // useCredentialsForManifestTag: true,
       // injectPWAMetaTags: false,
-      // extendPWACustomSWConf (rolldownConf) {},
+      // extendPWACustomSWConf (webpackConf) {},
       // extendPWAGenerateSWOptions (cfg) {},
       // extendPWAInjectManifestOptions (cfg) {},
       // extendPWASwTsConfig (tsConfig) {}
     },
 
-    // https://v2.quasar.dev/quasar-cli-vite/developing-cordova-apps/configuring-cordova
+    // https://v2.quasar.dev/quasar-cli-webpack/developing-cordova-apps/configuring-cordova
     cordova: {},
 
-    // https://v2.quasar.dev/quasar-cli-vite/developing-capacitor-apps/configuring-capacitor
+    // https://v2.quasar.dev/quasar-cli-webpack/developing-capacitor-apps/configuring-capacitor
     capacitor: {
       hideSplashscreen: true
     },
 
-    // https://v2.quasar.dev/quasar-cli-vite/developing-electron-apps/configuring-electron
+    // https://v2.quasar.dev/quasar-cli-webpack/developing-electron-apps/configuring-electron
     electron: {
-      // extendElectronMainConf (rolldownConf) {},
-      // extendElectronPreloadConf (rolldownConf) {},
+      // extendElectronMainConf (webpackConf) {},
+      // extendElectronPreloadConf (webpackConf) {},
       // extendElectronPackageJson (pkgJson) {},
 
       // Electron preload scripts (if any) from /src-electron, WITHOUT file extension
@@ -210,9 +200,9 @@ export default defineConfig((/* ctx */) => {
       }
     },
 
-    // https://v2.quasar.dev/quasar-cli-vite/developing-browser-extensions/configuring-bex
+    // https://v2.quasar.dev/quasar-cli-webpack/developing-browser-extensions/configuring-bex
     bex: {
-      // extendBexScriptsConf (rolldownConf) {},
+      // extendBexScriptsConf (webpackConf) {},
       // extendBexManifestJson (json) {},
 
       /**
@@ -226,4 +216,4 @@ export default defineConfig((/* ctx */) => {
       extraScripts: []
     }
   }
-})
+}
